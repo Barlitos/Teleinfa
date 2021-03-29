@@ -6,5 +6,8 @@ public class Main {
         System.out.println("Test");
         System.out.println("No elo ~Pjoter");
         System.out.println("Badzio");
+        System.out.println("Push");
+        System.out.println("Push2");
+        System.out.println("ale beda rzeczy");
     }
 }
