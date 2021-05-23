@@ -3,14 +3,16 @@ public class Hamming {
         return Math.log10(n)/Math.log10(2);
     }
 
-    public static void koduj_Hamming(String kod_wejsciowy)
-    {
-    int dlugosc = kod_wejsciowy.length(), dodatkowa_dlugosc=0, j=0, sprawdzam;
-    int[] tablica = new int[dlugosc];
-
+    public static void koduj_Hamming(int kod_wejsciowy) {
+        String wejscie=Integer.toBinaryString(kod_wejsciowy);
+        int dlugosc = wejscie.length(), dodatkowa_dlugosc = 0, j = 0, sprawdzam;
+        int[] tablica = new int[dlugosc];
+        System.out.println("Binarny kod wejsciowy: ");
         for (int i = 0; i < dlugosc; i++) {
-            tablica[i]=Character.getNumericValue(kod_wejsciowy.charAt(i));
+            tablica[i] = Character.getNumericValue(wejscie.charAt(i));
+            System.out.print(tablica[i]);
         }
+
 
         for (int i=0; i<dlugosc; i++) {     //Sprawdzenie ile dodatkowych pozycji
             if(log2(i+1) - (int) log2(i+1)==0)
@@ -23,7 +25,7 @@ public class Hamming {
             dodatkowa_dlugosc++;
         }
 
-    int[] kod = new int[dlugosc];
+        int[] kod = new int[dlugosc];
 
         for (int i=0; i<dlugosc; i++) {     //Wstawiam 0 tam gdzie sa pozycje do policzenia
             if(log2(i+1) - (int) log2(i+1)==0) {
@@ -60,8 +62,8 @@ public class Hamming {
             }
         }
 
-        System.out.println("Zakodowany ciąg: ");
-        for (int i=0; i<dlugosc; i++)
+        System.out.println("\nKodowanie Hamminga: ");
+        for (int i = 0; i < dlugosc; i++)
             System.out.print(kod[i]);
 
         int[] dekodowanie = new int[dlugosc-dodatkowa_dlugosc];
