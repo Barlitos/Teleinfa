@@ -76,5 +76,6 @@ public class Hamming {
         System.out.println("\nZdekodowany ciag:");
         for (int i=0; i<dlugosc-dodatkowa_dlugosc; i++)
             System.out.print(dekodowanie[i]);
+
     }
 }
