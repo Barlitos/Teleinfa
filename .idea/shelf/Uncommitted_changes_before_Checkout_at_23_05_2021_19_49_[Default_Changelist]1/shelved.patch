@@ -1,0 +1,29 @@
+Index: src/Hamming.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class Hamming {\r\n    public static double log2 (int n) {\r\n        return Math.log10(n)/Math.log10(2);\r\n    }\r\n\r\n    public static void koduj_Hamming(int kod_wejsciowy) {\r\n        String wejscie=Integer.toBinaryString(kod_wejsciowy);\r\n        int dlugosc = wejscie.length(), dodatkowa_dlugosc = 0, j = 0, sprawdzam;\r\n        int[] tablica = new int[dlugosc];\r\n        System.out.println(\"Binarny kod wejsciowy: \");\r\n        for (int i = 0; i < dlugosc; i++) {\r\n            tablica[i] = Character.getNumericValue(wejscie.charAt(i));\r\n            System.out.print(tablica[i]);\r\n        }\r\n\r\n\r\n        for (int i = 0; i < dlugosc; i++) {     //Sprawdzenie ile dodatkowych pozycji\r\n            if (log2(i + 1) - (int) log2(i + 1) == 0)\r\n                dodatkowa_dlugosc++;\r\n        }\r\n\r\n        dlugosc += dodatkowa_dlugosc;\r\n        if (log2(dlugosc) - (int) log2(dlugosc) == 0)  //dodaj 1 pozycje jezeli ostatnia pozycja to miejsce na kod\r\n            dlugosc++;\r\n\r\n        int[] kod = new int[dlugosc];\r\n\r\n        for (int i = 0; i < dlugosc; i++) {     //Wstawiam 0 tam gdzie sa pozycje do policzenia\r\n            if (log2(i + 1) - (int) log2(i + 1) == 0) {\r\n                kod[i] = 0;\r\n            } else {\r\n                kod[i] = tablica[j];\r\n                j++;\r\n            }\r\n        }\r\n\r\n        j = 0;\r\n        for (int i = 0; i < dlugosc; i++) {\r\n            if (log2(i + 1) - (int) log2(i + 1) == 0) {\r\n\r\n                int k = i;\r\n                while (k < dlugosc) {\r\n                    sprawdzam = 0;\r\n                    for (int l = 0; l < i + 1; l++) {\r\n\r\n                        if (k + l == dlugosc)\r\n                            sprawdzam = 1;\r\n\r\n                        if ((log2(k + 1 + l) - (int) log2(k + 1 + l) != 0) && (sprawdzam == 0)) {\r\n                            kod[i] += kod[k + l];\r\n                        }\r\n                    }\r\n                    k = k + (2 * (i + 1));\r\n                }\r\n                kod[i] = kod[i] % 2;\r\n            } else {\r\n                kod[i] = tablica[j];\r\n                j++;\r\n            }\r\n        }\r\n        System.out.println(\"\\nKodowanie Hamminga: \");\r\n        for (int i = 0; i < dlugosc; i++)\r\n            System.out.print(kod[i]);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Hamming.java b/src/Hamming.java
+--- a/src/Hamming.java	
++++ b/src/Hamming.java	
+@@ -61,5 +61,18 @@
+         System.out.println("\nKodowanie Hamminga: ");
+         for (int i = 0; i < dlugosc; i++)
+             System.out.print(kod[i]);
++
++        int[] dekodowanie = new int[dlugosc-dodatkowa_dlugosc];
++        j=0;
++        for (int i=0; i<dlugosc; i++) {
++            if(log2(i+1) - (int) log2(i+1)!=0) {
++                dekodowanie[j] = kod[i];
++                j++;
++            }
++        }
++
++        System.out.println("\nZdekodowany ciag:");
++        for (int i=0; i<dlugosc-dodatkowa_dlugosc; i++)
++            System.out.print(dekodowanie[i]);
+     }
+ }
