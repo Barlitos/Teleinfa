@@ -1,10 +1,9 @@
 import java.util.Scanner;
 
-public class Crc16 {
+public class Crc16 { //to jest crc16 reverse
     static Scanner skaner = new Scanner(System.in);
-    static void crc16() {
-        System.out.println("Podaj dane na wejsciu");
-        int dataIn = skaner.nextInt();
+    static void crc16(int input) {
+        int dataIn = input;
         int poly = 0b1010000000000001;
         int reverse = 0b1111111111111111;
         int wynik = reverse ^ dataIn;

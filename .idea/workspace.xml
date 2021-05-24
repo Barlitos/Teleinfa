@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="576a6dc1-4392-460a-bd1f-589d478e42af" name="Default Changelist" comment="czyzby">
+    <list default="true" id="576a6dc1-4392-460a-bd1f-589d478e42af" name="Default Changelist" comment="ten pushuj">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Crc16.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Crc16.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,13 +81,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -113,6 +118,7 @@
       <workItem from="1621771346209" duration="651000" />
       <workItem from="1621772185972" duration="1035000" />
       <workItem from="1621774539417" duration="43000" />
+      <workItem from="1621867105305" duration="706000" />
     </task>
     <task id="LOCAL-00001" summary="czyzby">
       <created>1617033923721</created>
@@ -135,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621792246632</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ten pushuj">
+      <created>1621796739366</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1621796739366</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -188,7 +201,8 @@
     <MESSAGE value="Hamming - z dekodowaniem" />
     <MESSAGE value="Hamming z dekodowaniem" />
     <MESSAGE value="Kodowanie Hamminga z dekodowaniem" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kodowanie Hamminga z dekodowaniem" />
+    <MESSAGE value="ten pushuj" />
+    <option name="LAST_COMMIT_MESSAGE" value="ten pushuj" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Main.java">
