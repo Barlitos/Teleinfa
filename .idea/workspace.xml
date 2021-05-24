@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="576a6dc1-4392-460a-bd1f-589d478e42af" name="Default Changelist" comment="Kodowanie Hamminga z pobieraniem i podzielone na klasy">
+    <list default="true" id="576a6dc1-4392-460a-bd1f-589d478e42af" name="Default Changelist" comment="czyzby">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_05_2021_19_49_[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_05_2021_19_49_[Default_Changelist]1/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_05_2021_19_49__Default_Changelist_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_05_2021_19_49__Default_Changelist_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/teleinformatyka/Crc16.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/teleinformatyka/Hamming.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Crc16.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Crc16normalne.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/teleinformatyka/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/teleinformatyka/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Hamming.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hamming.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -114,6 +126,7 @@
       <workItem from="1621771346209" duration="651000" />
       <workItem from="1621772185972" duration="1035000" />
       <workItem from="1621774539417" duration="43000" />
+      <workItem from="1621867105305" duration="706000" />
     </task>
     <task id="LOCAL-00001" summary="czyzby">
       <created>1617033923721</created>
@@ -122,14 +135,28 @@
       <option name="project" value="LOCAL" />
       <updated>1617033923721</updated>
     </task>
-    <task id="LOCAL-00002" summary="Kodowanie Hamminga z pobieraniem i podzielone na klasy">
-      <created>1621785104584</created>
+    <task id="LOCAL-00002" summary="Hamming z dekodowaniem">
+      <created>1621791101070</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1621785104584</updated>
+      <updated>1621791101070</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Kodowanie Hamminga z dekodowaniem">
+      <created>1621792246632</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1621792246632</updated>
+    </task>
+    <task id="LOCAL-00004" summary="ten pushuj">
+      <created>1621796739366</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1621796739366</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -179,8 +206,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="czyzby" />
-    <MESSAGE value="Kodowanie Hamminga z pobieraniem i podzielone na klasy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kodowanie Hamminga z pobieraniem i podzielone na klasy" />
+    <MESSAGE value="Hamming - z dekodowaniem" />
+    <MESSAGE value="Hamming z dekodowaniem" />
+    <MESSAGE value="Kodowanie Hamminga z dekodowaniem" />
+    <MESSAGE value="ten pushuj" />
+    <option name="LAST_COMMIT_MESSAGE" value="ten pushuj" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Main.java">
