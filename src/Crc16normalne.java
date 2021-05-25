@@ -10,7 +10,7 @@ public class Crc16normalne {
         dataIn = Long.parseLong(temp,2);
         temp = Long.toBinaryString(dataIn);
         int kres_petli = Long.toBinaryString(dataIn).length();
-        String iloraz="1";
+        String iloraz="0";
         String string_dataIn = "";
         long kawalek_dataIn=0;
         for (int j = 12; j < kres_petli-1;j++) {
