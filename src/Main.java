@@ -10,6 +10,6 @@ public class Main {
         Crc16 crc16 = new Crc16();
         crc16.crc16(wejscie);
         Crc16normalne crc16norm = new Crc16normalne();
-        crc16norm.crc16norm(wejscie);
+        crc16norm.crc16normcheck(crc16norm.crc16norm(wejscie),wejscie);
     }
 }
