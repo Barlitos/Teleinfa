@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="576a6dc1-4392-460a-bd1f-589d478e42af" name="Default Changelist" comment="ten pushuj">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" beforeDir="false" />
+    <list default="true" id="576a6dc1-4392-460a-bd1f-589d478e42af" name="Default Changelist" comment="ten pushuj7">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_05_2021_19_49_[Default_Changelist]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_05_2021_19_49__Default_Changelist_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/teleinformatyka/Crc16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/teleinformatyka/Crc16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/teleinformatyka/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/teleinformatyka/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Crc16.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Crc16.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Crc16normalne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Crc16normalne.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,6 +110,7 @@
       <workItem from="1621772185972" duration="1035000" />
       <workItem from="1621774539417" duration="43000" />
       <workItem from="1621867105305" duration="706000" />
+      <workItem from="1622484254695" duration="9506000" />
     </task>
     <task id="LOCAL-00001" summary="czyzby">
       <created>1617033923721</created>
