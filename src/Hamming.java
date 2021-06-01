@@ -106,6 +106,10 @@ public class Hamming {
                 zaklocenie = random.nextInt(dlugosc);
                 //System.out.println(zaklocenie);
 
+                System.out.println("\nZakodowany ciag:");
+                for (int i=0; i<dlugosc; i++)
+                    System.out.print(kod[i]);
+
                 if (kod[dlugosc-zaklocenie-1]==0) {
                     kod[dlugosc-zaklocenie-1]=1;
                 }
@@ -124,6 +128,10 @@ public class Hamming {
                     zaklocenie = scanner.nextInt();
                 }while(zaklocenie<0 || zaklocenie>dlugosc-1);
 
+                System.out.println("\nZakodowany ciag:");
+                for (int i=0; i<dlugosc; i++)
+                    System.out.print(kod[i]);
+
                 if (kod[dlugosc-zaklocenie-1]==0) {
                     kod[dlugosc-zaklocenie-1]=1;
                 }
@@ -136,6 +144,10 @@ public class Hamming {
                     System.out.print(kod[i]);
             }
 
+            System.out.println("\nZdekodowany ciag:");
+            for (int i=0; i<dlugosc-dodatkowa_dlugosc; i++)
+                System.out.print(dekodowanie[i]);
+
             j=0;
             for (int i=0; i<dlugosc; i++) {
                 if(log2(i+1) - (int) log2(i+1)!=0) {
@@ -144,7 +156,7 @@ public class Hamming {
                 }
             }
 
-            System.out.println("\nZdekodowany ciag:");
+            System.out.println("\nZdekodowany ciag po zakloceniu:");
             for (int i=0; i<dlugosc-dodatkowa_dlugosc; i++)
                 System.out.print(dekodowanie[i]);
         }
