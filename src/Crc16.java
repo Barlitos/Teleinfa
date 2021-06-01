@@ -1,6 +1,5 @@
 import java.util.Random;
 import java.util.Scanner;
-
 public class Crc16 { //to jest crc16, od tąd
     static long crc16(int input) {
         long dataIn = input;
@@ -103,7 +102,6 @@ public class Crc16 { //to jest crc16, od tąd
                     string_dataIn = Long.toBinaryString(kawalek_dataIn);
                 }
             }
-
         }
 
         if(kawalek_dataIn == 0b0) System.out.println("Sprawdzenie CRC16 udane, dane nie zostały zakłamane");

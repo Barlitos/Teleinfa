@@ -13,5 +13,6 @@ public class Main {
         Crc16normalne crc12 = new Crc16normalne();
         System.out.println("Dane zakodowane CRC12 = " + Long.toBinaryString(crc12.crc12norm(wejscie)));
         crc12.czy_zaklocic_crc12(crc12.crc12normcheck(crc12.crc12norm(wejscie)));
+
     }
 }
