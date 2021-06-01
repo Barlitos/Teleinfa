@@ -7,6 +7,7 @@ public class Hamming {
     }
 
     public static void koduj_Hamming(int kod_wejsciowy) {
+        System.out.println("========= Kodowanie Hamminga =======");
         String wejscie=Integer.toBinaryString(kod_wejsciowy);
         int dlugosc = wejscie.length(), dodatkowa_dlugosc = 0, j = 0, sprawdzam;
         int[] tablica = new int[dlugosc];
@@ -182,6 +183,8 @@ public class Hamming {
             System.out.println("Ilosc bledow: "+ile);
             System.out.println("Ilosc bledow wykrytych: "+wykryte);
             System.out.println("Ilosc bledow niewykrytych: "+(ile-wykryte));
+
         }
+        System.out.println("===== Koniec Kodowania Hamminga=====\n");
     }
 }

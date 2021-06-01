@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class SDLC {
     static long sdlc_koduj(int input) {
+        System.out.println("==========KODOWANIE SDLC=========\n");
         long dataIn = input;
         String wart_pocz = Long.toBinaryString(dataIn);
         long poly = 0b10001000000100101;
@@ -163,5 +164,6 @@ public class SDLC {
             }
 
         }
+        System.out.println("\n======== KONIEC KODOWANIA SDLC=======\n");
     } // do tąd
 }
