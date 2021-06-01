@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="576a6dc1-4392-460a-bd1f-589d478e42af" name="Default Changelist" comment="Kodowanie Hamminga z dekodowaniem here">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/teleinformatyka/Crc16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/teleinformatyka/Crc16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/teleinformatyka/Hamming.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/teleinformatyka/Hamming.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/teleinformatyka/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/teleinformatyka/Main.class" afterDir="false" />
+    <list default="true" id="576a6dc1-4392-460a-bd1f-589d478e42af" name="Default Changelist" comment="czyzby">
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +65,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Projekty C++/huffman/src/huffman/Huffman.java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -78,6 +74,17 @@
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -106,7 +113,6 @@
       <workItem from="1621771346209" duration="651000" />
       <workItem from="1621772185972" duration="1035000" />
       <workItem from="1621774539417" duration="43000" />
-      <workItem from="1622025780974" duration="70000" />
     </task>
     <task id="LOCAL-00001" summary="czyzby">
       <created>1617033923721</created>
@@ -129,21 +135,7 @@
       <option name="project" value="LOCAL" />
       <updated>1621792246632</updated>
     </task>
-    <task id="LOCAL-00004" summary="Kodowanie Hamminga z dekodowaniem here">
-      <created>1621874624662</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1621874624662</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Kodowanie Hamminga z dekodowaniem here">
-      <created>1621874961404</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1621874961404</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -196,8 +188,7 @@
     <MESSAGE value="Hamming - z dekodowaniem" />
     <MESSAGE value="Hamming z dekodowaniem" />
     <MESSAGE value="Kodowanie Hamminga z dekodowaniem" />
-    <MESSAGE value="Kodowanie Hamminga z dekodowaniem here" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kodowanie Hamminga z dekodowaniem here" />
+    <option name="LAST_COMMIT_MESSAGE" value="Kodowanie Hamminga z dekodowaniem" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Main.java">
