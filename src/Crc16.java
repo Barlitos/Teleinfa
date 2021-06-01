@@ -133,12 +133,22 @@ public class Crc16 { //to jest crc16, od tąd
             } while (odp2 < 1 || odp2 > 2);
 
             if (odp2 == 1) {
+                do {
+                    System.out.println("\nPodaj ile bitów zakłócić:");
+                    System.out.print("Ilość do zakłócenia: ");
+                    zaklocenie = scanner.nextInt();
+                } while (zaklocenie < 0 || zaklocenie > dlugosc - 1);
                 Random random = new Random();
-                zaklocenie = random.nextInt(dlugosc);
-                if (kod[dlugosc - zaklocenie - 1] == '0') {
-                    kod[dlugosc - zaklocenie - 1] = '1';
-                } else if (kod[dlugosc - zaklocenie - 1] == '1') {
-                    kod[dlugosc - zaklocenie - 1] = '0';
+                int[] pozycje_do_zaklocenia = new int[zaklocenie];
+                for(int i = 0; i < zaklocenie; i++){
+                    pozycje_do_zaklocenia[i] = random.nextInt(dlugosc);
+                }
+                for(int k = 0; k < zaklocenie; k++){
+                    if (kod[dlugosc - pozycje_do_zaklocenia[k] - 1] == '0') {
+                        kod[dlugosc - pozycje_do_zaklocenia[k] - 1] = '1';
+                    } else if (kod[dlugosc - pozycje_do_zaklocenia[k] - 1] == '1'){
+                        kod[dlugosc - pozycje_do_zaklocenia[k] - 1] = '0';
+                    }
                 }
                 for (int i = 0; i < dlugosc; i++)
                     zaklamane += kod[i];
@@ -146,15 +156,25 @@ public class Crc16 { //to jest crc16, od tąd
                 crc16check(Long.parseLong(zaklamane,2));
             } else if (odp2 == 2) {
                 do {
-                    System.out.println("\nPodaj numer bitu do zakłócenia:");
-                    System.out.print("Wybor: ");
+                    System.out.println("\nPodaj ile bitów zakłócić:");
+                    System.out.print("Ilość do zakłócenia: ");
                     zaklocenie = scanner.nextInt();
                 } while (zaklocenie < 0 || zaklocenie > dlugosc - 1);
-                if (kod[dlugosc - zaklocenie - 1] == '0') {
-                    kod[dlugosc - zaklocenie - 1] = '1';
-                } else if (kod[dlugosc - zaklocenie - 1] == '1'){
-                    kod[dlugosc - zaklocenie - 1] = '0';
+                int[] pozycje_do_zaklocenia = new int[zaklocenie];
+                System.out.println("Podaj pojedynczo pozycje bitów do zakłócenia (indeksowanie odbywa się od lewej strony i od 0)");
+                for(int i = 0; i < zaklocenie; i++){
+                    System.out.println("Pozycja bity nr "+i+" :");
+                    pozycje_do_zaklocenia[i] = scanner.nextInt();
                 }
+                for(int k = 0; k < zaklocenie; k++){
+
+                    if (kod[dlugosc - pozycje_do_zaklocenia[k] - 1] == '0') {
+                        kod[dlugosc - pozycje_do_zaklocenia[k] - 1] = '1';
+                    } else if (kod[dlugosc - pozycje_do_zaklocenia[k] - 1] == '1'){
+                        kod[dlugosc - pozycje_do_zaklocenia[k] - 1] = '0';
+                    }
+                }
+
                 for (int i = 0; i < dlugosc; i++)
                     zaklamane += kod[i];
                 System.out.println("\nZakodowany ciag po zakloceniu: "+ zaklamane);
