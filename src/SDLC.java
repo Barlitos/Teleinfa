@@ -1,10 +1,11 @@
 import java.util.Random;
 import java.util.Scanner;
-public class Crc16 { //to jest crc16, od tąd
-    static long crc16(int input) {
+
+public class SDLC {
+    static long sdlc_koduj(int input) {
         long dataIn = input;
         String wart_pocz = Long.toBinaryString(dataIn);
-        long poly = 0b11000000000000101;
+        long poly = 0b10001000000100101;
         String temp = Long.toBinaryString(dataIn);
         temp += "0000000000000000";
         dataIn = Long.parseLong(temp,2);
@@ -59,11 +60,11 @@ public class Crc16 { //to jest crc16, od tąd
             wart_pocz += zera;
         } else wart_pocz += string_dataIn;
         return Long.parseLong(wart_pocz,2);
-        }
+    }
 
-    static long crc16check(long input) {
+    static long sdlcCheck(long input) {
         long dataIn = input;
-        long poly = 0b11000000000000101;
+        long poly = 0b10001000000100101;
         int kres_petli = Long.toBinaryString(dataIn).length();
         String string_dataIn = "";
         long kawalek_dataIn=0;
@@ -104,12 +105,12 @@ public class Crc16 { //to jest crc16, od tąd
             }
         }
 
-        if(kawalek_dataIn == 0b0) System.out.println("Sprawdzenie CRC16 udane, dane nie zostały zakłamane");
+        if(kawalek_dataIn == 0b0) System.out.println("Sprawdzenie SDLC udane, dane nie zostały zakłamane");
         else System.out.println("coś nie tak == " + string_dataIn);
         return input;
     }
 
-    void czy_zaklocic_crc16(long zakodowane) {
+    void czy_zaklocic_SDLC(long zakodowane) {
         int dlugosc = Long.toBinaryString(zakodowane).length();
         char[] kod = Long.toBinaryString(zakodowane).toCharArray();
         String zaklamane ="";
@@ -143,7 +144,7 @@ public class Crc16 { //to jest crc16, od tąd
                 for (int i = 0; i < dlugosc; i++)
                     zaklamane += kod[i];
                 System.out.println("\nZakodowany ciag po zakloceniu: "+ zaklamane);
-                crc16check(Long.parseLong(zaklamane,2));
+                sdlcCheck(Long.parseLong(zaklamane,2));
             } else if (odp2 == 2) {
                 do {
                     System.out.println("\nPodaj numer bitu do zakłócenia:");
@@ -158,10 +159,9 @@ public class Crc16 { //to jest crc16, od tąd
                 for (int i = 0; i < dlugosc; i++)
                     zaklamane += kod[i];
                 System.out.println("\nZakodowany ciag po zakloceniu: "+ zaklamane);
-                crc16check(Long.parseLong(zaklamane,2));
+                sdlcCheck(Long.parseLong(zaklamane,2));
             }
 
         }
     } // do tąd
 }
-
