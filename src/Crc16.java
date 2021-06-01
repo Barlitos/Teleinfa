@@ -24,7 +24,7 @@ public class Crc16 { //to jest crc16, od tąd
                 string_dataIn = Long.toBinaryString(kawalek_dataIn);
                 if(string_dataIn.length() < 16 ){
                     int temp_licz = 0;
-                    if(!(13-string_dataIn.length() > kres_petli-j)){
+                    if(!(17-string_dataIn.length() > kres_petli-j)){
                         for (int k = 0; k <= 16-Long.toBinaryString(kawalek_dataIn).length();k++){
                             string_dataIn += Long.toBinaryString(dataIn).charAt(j + k);
                             temp_licz++;
