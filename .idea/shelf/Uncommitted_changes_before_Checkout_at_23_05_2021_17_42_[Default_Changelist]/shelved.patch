@@ -1,0 +1,221 @@
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class Main {\r\n\r\n    public static double log2 (int n) {\r\n        return Math.log10(n)/Math.log10(2);\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        int dlugosc = 12, dodatkowa_dlugosc=0, j=0, ilosc_skokow=0, sprawdzam=0, pom=0;\r\n        int[] tablica = new int[dlugosc];\r\n\r\n        //Tablica statycznie tu trzeba wczytanie od uzytkownika zrobic\r\n        tablica[0] = 1;\r\n        tablica[1] = 0;\r\n        tablica[2] = 1;\r\n        tablica[3] = 0;\r\n        tablica[4] = 1;\r\n        tablica[5] = 0;\r\n        tablica[6] = 1;\r\n        tablica[7] = 0;\r\n        tablica[8] = 1;\r\n        tablica[9] = 0;\r\n        tablica[10] = 1;\r\n        tablica[11] = 0;\r\n\r\n        for (int i=0; i<dlugosc; i++) {     //Sprawdzenie ile dodatkowych pozycji\r\n            if(log2(i+1) - (int) log2(i+1)==0)\r\n                dodatkowa_dlugosc++;\r\n        }\r\n\r\n        dlugosc += dodatkowa_dlugosc;\r\n        if(log2(dlugosc) - (int) log2(dlugosc)==0)  //dodaj 1 pozycje jezeli ostatnia pozycja to miejsce na kod\r\n            dlugosc++;\r\n\r\n        int[] kod = new int[dlugosc];\r\n\r\n        for (int i=0; i<dlugosc; i++) {     //Wstawiam 0 tam gdzie sa pozycje do policzenia\r\n            if(log2(i+1) - (int) log2(i+1)==0) {\r\n                kod[i] = 0;\r\n            }\r\n            else {\r\n                kod[i]=tablica[j];\r\n                j++;\r\n            }\r\n        }\r\n\r\n        j = 0;\r\n        for (int i=0; i<dlugosc; i++) {\r\n            if(log2(i+1) - (int) log2(i+1)==0) {\r\n\r\n                int k=i;\r\n                while (k<dlugosc) {\r\n                    sprawdzam = 0;\r\n                    for(int l=0; l<i+1; l++) {\r\n\r\n                        if(k+l==dlugosc)\r\n                            sprawdzam=1;\r\n\r\n                        if ((log2(k + 1 + l) - (int) log2(k + 1 + l) != 0) && (sprawdzam==0)) {\r\n                            kod[i] += kod[k+l];\r\n                        }\r\n                    }\r\n                    k=k+(2*(i+1));\r\n                }\r\n                kod[i] = kod[i]%2;\r\n            }\r\n            else {\r\n                kod[i] = tablica[j];\r\n                j++;\r\n            }\r\n        }\r\n\r\n        for (int i=0; i<dlugosc; i++)\r\n            System.out.print(kod[i]);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	
++++ b/src/Main.java	
+@@ -1,75 +1,13 @@
++
++import java.util.Scanner;
++
+ public class Main {
+ 
+-    public static double log2 (int n) {
+-        return Math.log10(n)/Math.log10(2);
+-    }
+-
+     public static void main(String[] args) {
+-        int dlugosc = 12, dodatkowa_dlugosc=0, j=0, ilosc_skokow=0, sprawdzam=0, pom=0;
+-        int[] tablica = new int[dlugosc];
+-
+-        //Tablica statycznie tu trzeba wczytanie od uzytkownika zrobic
+-        tablica[0] = 1;
+-        tablica[1] = 0;
+-        tablica[2] = 1;
+-        tablica[3] = 0;
+-        tablica[4] = 1;
+-        tablica[5] = 0;
+-        tablica[6] = 1;
+-        tablica[7] = 0;
+-        tablica[8] = 1;
+-        tablica[9] = 0;
+-        tablica[10] = 1;
+-        tablica[11] = 0;
+-
+-        for (int i=0; i<dlugosc; i++) {     //Sprawdzenie ile dodatkowych pozycji
+-            if(log2(i+1) - (int) log2(i+1)==0)
+-                dodatkowa_dlugosc++;
+-        }
+-
+-        dlugosc += dodatkowa_dlugosc;
+-        if(log2(dlugosc) - (int) log2(dlugosc)==0)  //dodaj 1 pozycje jezeli ostatnia pozycja to miejsce na kod
+-            dlugosc++;
+-
+-        int[] kod = new int[dlugosc];
+-
+-        for (int i=0; i<dlugosc; i++) {     //Wstawiam 0 tam gdzie sa pozycje do policzenia
+-            if(log2(i+1) - (int) log2(i+1)==0) {
+-                kod[i] = 0;
+-            }
+-            else {
+-                kod[i]=tablica[j];
+-                j++;
+-            }
+-        }
++        System.out.println("Wprowadz kod wejsciowy: ");
++        String wejscie = new Scanner(System.in).nextLine();
++        Hamming.koduj_Hamming(wejscie);
++    }
+ 
+-        j = 0;
+-        for (int i=0; i<dlugosc; i++) {
+-            if(log2(i+1) - (int) log2(i+1)==0) {
+-
+-                int k=i;
+-                while (k<dlugosc) {
+-                    sprawdzam = 0;
+-                    for(int l=0; l<i+1; l++) {
+-
+-                        if(k+l==dlugosc)
+-                            sprawdzam=1;
+-
+-                        if ((log2(k + 1 + l) - (int) log2(k + 1 + l) != 0) && (sprawdzam==0)) {
+-                            kod[i] += kod[k+l];
+-                        }
+-                    }
+-                    k=k+(2*(i+1));
+-                }
+-                kod[i] = kod[i]%2;
+-            }
+-            else {
+-                kod[i] = tablica[j];
+-                j++;
+-            }
+-        }
+-
+-        for (int i=0; i<dlugosc; i++)
+-            System.out.print(kod[i]);
+-    }
+-}
++    
++}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"576a6dc1-4392-460a-bd1f-589d478e42af\" name=\"Default Changelist\" comment=\"Hamming\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Main.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectFrameBounds\">\r\n    <option name=\"x\" value=\"68\" />\r\n    <option name=\"y\" value=\"21\" />\r\n    <option name=\"width\" value=\"1285\" />\r\n    <option name=\"height\" value=\"1002\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1qS7FQtdPqN0kRrGaAnHy2kQI3d\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectView\">\r\n    <navigator proportions=\"\" version=\"1\">\r\n      <foldersAlwaysOnTop value=\"true\" />\r\n    </navigator>\r\n    <panes>\r\n      <pane id=\"ProjectPane\">\r\n        <subPane>\r\n          <expand>\r\n            <path>\r\n              <item name=\"teleinformatyka\" type=\"b2602c69:ProjectViewProjectNode\" />\r\n              <item name=\"teleinformatyka\" type=\"462c0819:PsiDirectoryNode\" />\r\n            </path>\r\n          </expand>\r\n          <select />\r\n        </subPane>\r\n      </pane>\r\n      <pane id=\"Scope\" />\r\n      <pane id=\"PackagesPane\" />\r\n    </panes>\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"teleinformatyka\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"file://$PROJECT_DIR$\" />\r\n      <RunnerSettings RunnerId=\"Run\" />\r\n      <ConfigurationWrapper RunnerId=\"Run\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"ArquillianTestNG\" factoryName=\"\" nameIsGenerated=\"true\">\r\n      <option name=\"arquillianRunConfiguration\">\r\n        <value>\r\n          <option name=\"containerStateName\" value=\"\" />\r\n        </value>\r\n      </option>\r\n      <option name=\"TEST_OBJECT\" value=\"CLASS\" />\r\n      <properties />\r\n      <listeners />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"SvnConfiguration\">\r\n    <configuration />\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"576a6dc1-4392-460a-bd1f-589d478e42af\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1616661055511</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1616661055511</updated>\r\n      <workItem from=\"1617061081791\" duration=\"81000\" />\r\n      <workItem from=\"1617061188733\" duration=\"31000\" />\r\n      <workItem from=\"1621767234693\" duration=\"66000\" />\r\n      <workItem from=\"1621771346209\" duration=\"651000\" />\r\n      <workItem from=\"1621772185972\" duration=\"1035000\" />\r\n      <workItem from=\"1621774539417\" duration=\"43000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"czyzby\">\r\n      <created>1617033923721</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1617033923721</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"ToolWindowManager\">\r\n    <frame x=\"55\" y=\"17\" width=\"1028\" height=\"801\" extended-state=\"0\" />\r\n    <layout>\r\n      <window_info id=\"Image Layers\" />\r\n      <window_info id=\"Designer\" />\r\n      <window_info id=\"UI Designer\" />\r\n      <window_info id=\"Capture Tool\" />\r\n      <window_info id=\"Favorites\" side_tool=\"true\" />\r\n      <window_info active=\"true\" content_ui=\"combo\" id=\"Project\" order=\"0\" visible=\"true\" weight=\"0.25\" />\r\n      <window_info id=\"Structure\" order=\"1\" side_tool=\"true\" weight=\"0.25\" />\r\n      <window_info anchor=\"bottom\" id=\"Version Control\" show_stripe_button=\"false\" />\r\n      <window_info anchor=\"bottom\" id=\"Terminal\" />\r\n      <window_info anchor=\"bottom\" id=\"Event Log\" side_tool=\"true\" />\r\n      <window_info anchor=\"bottom\" id=\"Message\" order=\"0\" />\r\n      <window_info anchor=\"bottom\" id=\"Find\" order=\"1\" />\r\n      <window_info anchor=\"bottom\" id=\"Run\" order=\"2\" />\r\n      <window_info anchor=\"bottom\" id=\"Debug\" order=\"3\" weight=\"0.4\" />\r\n      <window_info anchor=\"bottom\" id=\"Cvs\" order=\"4\" weight=\"0.25\" />\r\n      <window_info anchor=\"bottom\" id=\"Inspection\" order=\"5\" weight=\"0.4\" />\r\n      <window_info anchor=\"bottom\" id=\"TODO\" order=\"6\" />\r\n      <window_info anchor=\"right\" id=\"Palette\" />\r\n      <window_info anchor=\"right\" id=\"Theme Preview\" />\r\n      <window_info anchor=\"right\" id=\"Capture Analysis\" />\r\n      <window_info anchor=\"right\" id=\"Palette&#9;\" />\r\n      <window_info anchor=\"right\" id=\"Maven Projects\" />\r\n      <window_info anchor=\"right\" id=\"Commander\" internal_type=\"SLIDING\" order=\"0\" type=\"SLIDING\" weight=\"0.4\" />\r\n      <window_info anchor=\"right\" id=\"Ant Build\" order=\"1\" weight=\"0.25\" />\r\n      <window_info anchor=\"right\" content_ui=\"combo\" id=\"Hierarchy\" order=\"2\" weight=\"0.25\" />\r\n    </layout>\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"czyzby\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"\" />\r\n  </component>\r\n  <component name=\"editorHistoryManager\">\r\n    <entry file=\"file://$PROJECT_DIR$/src/Main.java\">\r\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\r\n        <state relative-caret-position=\"34\">\r\n          <caret line=\"3\" column=\"40\" selection-start-line=\"3\" selection-start-column=\"40\" selection-end-line=\"3\" selection-end-column=\"40\" />\r\n        </state>\r\n      </provider>\r\n    </entry>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -3,6 +3,7 @@
+   <component name="ChangeListManager">
+     <list default="true" id="576a6dc1-4392-460a-bd1f-589d478e42af" name="Default Changelist" comment="Hamming">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/teleinformatyka/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/teleinformatyka/Main.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -53,16 +54,6 @@
+     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+   </component>
+   <component name="RunManager">
+-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+-      <option name="MAIN_CLASS_NAME" value="Main" />
+-      <module name="teleinformatyka" />
+-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+-      <RunnerSettings RunnerId="Run" />
+-      <ConfigurationWrapper RunnerId="Run" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+       <option name="arquillianRunConfiguration">
+         <value>
+@@ -72,6 +63,16 @@
+       <option name="TEST_OBJECT" value="CLASS" />
+       <properties />
+       <listeners />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
++      <option name="MAIN_CLASS_NAME" value="Main" />
++      <module name="teleinformatyka" />
++      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
++      <RunnerSettings RunnerId="Run" />
++      <ConfigurationWrapper RunnerId="Run" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+Index: src/Hamming.java
+===================================================================
+diff --git a/src/Hamming.java b/src/Hamming.java
+new file mode 100644
+--- /dev/null	
++++ b/src/Hamming.java	
+@@ -0,0 +1,66 @@
++
++public class Hamming {
++
++    public static void koduj_Hamming(String wejscie) {
++        int dlugosc = wejscie.length(), dodatkowa_dlugosc = 0, j = 0, sprawdzam;
++        int[] tablica = new int[dlugosc];
++        for (int i = 0; i < dlugosc; i++) {
++            tablica[i]= Character.getNumericValue(wejscie.charAt(i));
++        }
++        //  for (int i = 0; i <dlugosc ; i++) {
++        //      System.out.println(tablica[i]);
++        //  }
++
++        for (int i = 0; i < dlugosc; i++) {     //Sprawdzenie ile dodatkowych pozycji
++            if (log2(i + 1) - (int) log2(i + 1) == 0)
++                dodatkowa_dlugosc++;
++        }
++
++        dlugosc += dodatkowa_dlugosc;
++        if (log2(dlugosc) - (int) log2(dlugosc) == 0)  //dodaj 1 pozycje jezeli ostatnia pozycja to miejsce na kod
++            dlugosc++;
++
++        int[] kod = new int[dlugosc];
++
++        for (int i = 0; i < dlugosc; i++) {     //Wstawiam 0 tam gdzie sa pozycje do policzenia
++            if (log2(i + 1) - (int) log2(i + 1) == 0) {
++                kod[i] = 0;
++            } else {
++                kod[i] = tablica[j];
++                j++;
++            }
++        }
++
++        j = 0;
++        for (int i = 0; i < dlugosc; i++) {
++            if (log2(i + 1) - (int) log2(i + 1) == 0) {
++
++                int k = i;
++                while (k < dlugosc) {
++                    sprawdzam = 0;
++                    for (int l = 0; l < i + 1; l++) {
++
++                        if (k + l == dlugosc)
++                            sprawdzam = 1;
++
++                        if ((log2(k + 1 + l) - (int) log2(k + 1 + l) != 0) && (sprawdzam == 0)) {
++                            kod[i] += kod[k + l];
++                        }
++                    }
++                    k = k + (2 * (i + 1));
++                }
++                kod[i] = kod[i] % 2;
++            } else {
++                kod[i] = tablica[j];
++                j++;
++            }
++        }
++
++        for (int i = 0; i < dlugosc; i++)
++            System.out.print(kod[i]);
++    }
++
++    public static double log2(int n) {
++        return Math.log10(n) / Math.log10(2);
++    }
++}

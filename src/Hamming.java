@@ -7,6 +7,7 @@ public class Hamming {
     }
 
     public static void koduj_Hamming(int kod_wejsciowy) {
+        System.out.println("========= Kodowanie Hamminga =======");
         String wejscie=Integer.toBinaryString(kod_wejsciowy);
         int dlugosc = wejscie.length(), dodatkowa_dlugosc = 0, j = 0, sprawdzam;
         int[] tablica = new int[dlugosc];
@@ -70,6 +71,7 @@ public class Hamming {
             System.out.print(kod[i]);
 
         int[] dekodowanie = new int[dlugosc-dodatkowa_dlugosc];
+        int[] dekodowanie2 = new int[dlugosc-dodatkowa_dlugosc];
         j=0;
         for (int i=0; i<dlugosc; i++) {
             if(log2(i+1) - (int) log2(i+1)!=0) {
@@ -82,10 +84,15 @@ public class Hamming {
         for (int i=0; i<dlugosc-dodatkowa_dlugosc; i++)
             System.out.print(dekodowanie[i]);
 
-        int odp, zaklocenie, odp2;
+        int odp, zaklocenie, odp2, ile=0;
+        int [] kod2 = new int[dlugosc];
+
+        for (int i=0; i<dlugosc; i++)
+            kod2[i] = kod[i];
+
         Scanner scanner = new Scanner(System.in);
         do {
-            System.out.println("\n\n\nCzy chcesz zakłócić sygnał?");
+            System.out.println("\n\nCzy chcesz zakłócić sygnał?");
             System.out.println("TAK - 1");
             System.out.println("NIE - 0");
             System.out.print("Wybor: ");
@@ -102,51 +109,82 @@ public class Hamming {
             }while (odp2 < 1 || odp2 > 2);
 
             if (odp2==1) {
-                Random random = new Random();
-                zaklocenie = random.nextInt(dlugosc);
-                //System.out.println(zaklocenie);
+                do {
+                    System.out.println("\nPodaj ilosc bitow do zaklocenia:");
+                    ile = scanner.nextInt();
+                }while(ile<0 || ile>dlugosc-1);
 
-                if (kod[dlugosc-zaklocenie-1]==0) {
-                    kod[dlugosc-zaklocenie-1]=1;
-                }
-                else if (kod[dlugosc-zaklocenie-1]==1) {
-                    kod[dlugosc-zaklocenie-1]=0;
-                }
+                for(j=0; j<ile; j++){
+                    Random random = new Random();
+                    zaklocenie = random.nextInt(dlugosc);
+                    //System.out.println(zaklocenie);
 
-                System.out.println("\nZakodowany ciag po zakloceniu:");
-                for (int i=0; i<dlugosc; i++)
-                    System.out.print(kod[i]);
+                    if (kod[dlugosc-zaklocenie-1]==0) {
+                        kod2[dlugosc-zaklocenie-1]=1;
+                    }
+                    else if (kod[dlugosc-zaklocenie-1]==1) {
+                        kod2[dlugosc-zaklocenie-1]=0;
+                    }
+                }
             }
             else if(odp2==2) {
                 do {
-                    System.out.println("\nPodaj numer bitu do zakłócenia:");
-                    System.out.print("Wybor: ");
-                    zaklocenie = scanner.nextInt();
-                }while(zaklocenie<0 || zaklocenie>dlugosc-1);
+                    System.out.println("\nPodaj ilosc bitow do zaklocenia:");
+                    ile = scanner.nextInt();
+                }while(ile<0 || ile>dlugosc-1);
 
-                if (kod[dlugosc-zaklocenie-1]==0) {
-                    kod[dlugosc-zaklocenie-1]=1;
-                }
-                else if (kod[dlugosc-zaklocenie-1]==1) {
-                    kod[dlugosc-zaklocenie-1]=0;
-                }
+                for(j=0; j<ile; j++) {
+                    do {
+                        System.out.println("\nPodaj numer bitu do zakłócenia:");
+                        System.out.print("Wybor: ");
+                        zaklocenie = scanner.nextInt();
+                    }while(zaklocenie<0 || zaklocenie>dlugosc-1);
 
-                System.out.println("\nZakodowany ciag po zakloceniu:");
-                for (int i=0; i<dlugosc; i++)
-                    System.out.print(kod[i]);
-            }
-
-            j=0;
-            for (int i=0; i<dlugosc; i++) {
-                if(log2(i+1) - (int) log2(i+1)!=0) {
-                    dekodowanie[j] = kod[i];
-                    j++;
+                    if (kod[dlugosc-zaklocenie-1]==0) {
+                        kod2[dlugosc-zaklocenie-1]=1;
+                    }
+                    else if (kod[dlugosc-zaklocenie-1]==1) {
+                        kod2[dlugosc-zaklocenie-1]=0;
+                    }
                 }
             }
+
+            System.out.println("\nZakodowany ciag:");
+            for (int i=0; i<dlugosc; i++)
+                System.out.print(kod[i]);
+
+            System.out.println("\nZakodowany ciag po zakloceniu:");
+            for (int i=0; i<dlugosc; i++)
+                System.out.print(kod2[i]);
 
             System.out.println("\nZdekodowany ciag:");
             for (int i=0; i<dlugosc-dodatkowa_dlugosc; i++)
                 System.out.print(dekodowanie[i]);
+
+            j=0;
+            for (int i=0; i<dlugosc; i++) {
+                if(log2(i+1) - (int) log2(i+1)!=0) {
+                    dekodowanie2[j] = kod2[i];
+                    j++;
+                }
+            }
+
+            System.out.println("\nZdekodowany ciag po zakloceniu:");
+            for (int i=0; i<dlugosc-dodatkowa_dlugosc; i++)
+                System.out.print(dekodowanie2[i]);
+
+            int wykryte=0;
+            for (int i=0; i<dlugosc-dodatkowa_dlugosc; i++) {
+                if (dekodowanie[i]!=dekodowanie2[i])
+                    wykryte++;
+            }
+
+            System.out.println("\n\nStatystyki:");
+            System.out.println("Ilosc bledow: "+ile);
+            System.out.println("Ilosc bledow wykrytych: "+wykryte);
+            System.out.println("Ilosc bledow niewykrytych: "+(ile-wykryte));
+            System.out.println("Ilosc bitow kontrolnych: "+dodatkowa_dlugosc);
         }
+        System.out.println("===== Koniec Kodowania Hamminga=====\n");
     }
 }
