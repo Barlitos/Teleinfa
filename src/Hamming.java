@@ -183,7 +183,7 @@ public class Hamming {
             System.out.println("Ilosc bledow: "+ile);
             System.out.println("Ilosc bledow wykrytych: "+wykryte);
             System.out.println("Ilosc bledow niewykrytych: "+(ile-wykryte));
-
+            System.out.println("Ilosc bitow kontrolnych: "+dodatkowa_dlugosc);
         }
         System.out.println("===== Koniec Kodowania Hamminga=====\n");
     }
